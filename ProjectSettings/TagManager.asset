@@ -52,3 +52,6 @@ TagManager:
   - name: Statistic
     uniqueID: 2981212913
     locked: 0
+  - name: FrontGround
+    uniqueID: 3436282427
+    locked: 0
