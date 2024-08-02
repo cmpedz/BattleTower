@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sceptile2
+  m_Controller: {fileID: 9100000, guid: a011dda10c4ddd544bd1c2a35efd2c16, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: db0d61dacaabc094e95a12fad74d7431, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 900446e60db007943a9f559fc8719bd7, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6a216643ca06f2e43aee42f550aee5e4, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6957be6b31ea14b4f9e1e336c0f566d9, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e74681cbfd2e57140acbea6390123a35, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: bd1b07c2b2b0e1c4783754cdfc21f832, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7c4bbd500c2fbf84c8c2e49a63e9c088, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: f30568e8a356ef54e991cfc908024109, type: 2}

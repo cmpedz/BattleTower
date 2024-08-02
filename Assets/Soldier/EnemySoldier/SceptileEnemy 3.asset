@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 025b00b6433c97d4eba6dd7988fef39b, type: 3}
+  m_Name: SceptileEnemy 3
+  m_EditorClassIdentifier: 
+  soldierHealth: 10
+  speed: 3
+  speedAttack: 0.3
+  dam: 5
+  defence: 2
+  sprite: {fileID: -523883508, guid: 6d19b4b3efdadba4c9f2cef2705d39b7, type: 3}
+  animatorController: {fileID: 22100000, guid: 73087bad9ce71e34e9822021029807ef, type: 2}
+  type:
+    serializedVersion: 2
+    m_Bits: 128
+  objectAttack:
+    serializedVersion: 2
+    m_Bits: 256
+  rangeAttack: 1
+  quantitiesEnemiesAttack: 1
+  direction: -1
+  timeCauseDam: 0.4864865
