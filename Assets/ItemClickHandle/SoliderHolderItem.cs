@@ -17,6 +17,8 @@ public class SoliderHolderItem : MonoBehaviour, IPointerClickHandler
 
     [SerializeField] private GameObject wattingProcessBar;
 
+    [SerializeField] private Image soldierSpriteInTheBox;
+
     private Slider slider;
 
 
@@ -27,6 +29,10 @@ public class SoliderHolderItem : MonoBehaviour, IPointerClickHandler
             checkHavingEnoughMoney();
         }
         
+    }
+
+    void Awake() { 
+        soldierSpriteInTheBox.sprite = soldierDataStored.sprite;
     }
 
     void Start()
@@ -79,20 +85,26 @@ public class SoliderHolderItem : MonoBehaviour, IPointerClickHandler
 
             isSummoned = true;
 
-            // summonSoldier();
+            summonSoldier();
         }
         
     }
 
     private void summonSoldier() {
 
-        if (soldierForm != null) { 
+        if (soldierForm != null) {
 
             GameObject soldier = Instantiate(soldierForm);
-            
+
+            Debug.Log("check soldier data : " + soldierDataStored);
+
+            soldier.GetComponent<SoldierDataController>().SoliderData = soldierDataStored;
+
             soldier.SetActive(true);
 
             soldier.transform.position = playerTowerController.getPositionSummon();
+
+            
         }
     }
 }
