@@ -23,6 +23,7 @@ public class CameraMovementController : MonoBehaviour
 
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
 
+    [SerializeField] private RectTransform summonBar;
 
 
     void Start()
@@ -49,6 +50,7 @@ public class CameraMovementController : MonoBehaviour
 
         if(isMouseDown )
         {
+            if (lastMousePosition.y < summonBar.rect.height) return;
 
             float distancePosXMoved = (lastMousePosition.x - Input.mousePosition.x) * speedDrag * Time.deltaTime;
 
