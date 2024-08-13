@@ -104,7 +104,11 @@ public class SoliderHolderItem : MonoBehaviour, IPointerClickHandler
 
             soldier.transform.position = playerTowerController.getPositionSummon();
 
-            
+            int orderInLayer = (int)(soldier.transform.position.y * -1000);
+
+            soldier.GetComponent<SpriteRenderer>().sortingOrder = orderInLayer;
+
+
         }
     }
 }

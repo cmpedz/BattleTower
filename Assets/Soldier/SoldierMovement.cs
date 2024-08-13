@@ -11,10 +11,6 @@ public class SoldierMovement : MonoBehaviour
     [SerializeField] private Transform attackPoint;
 
     [SerializeField] private SoldierScriptableObject soldierData;
-    public SoldierScriptableObject SoldierData { 
-        get { return soldierData; }
-        set { soldierData = value; }
-    }
 
     private Animator animator;
 
