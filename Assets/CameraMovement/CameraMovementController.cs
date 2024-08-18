@@ -25,6 +25,8 @@ public class CameraMovementController : MonoBehaviour
 
     [SerializeField] private RectTransform summonBar;
 
+    [SerializeField] private float Max_Speed;
+
 
     void Start()
     {
@@ -53,6 +55,10 @@ public class CameraMovementController : MonoBehaviour
             if (lastMousePosition.y < summonBar.rect.height) return;
 
             float distancePosXMoved = (lastMousePosition.x - Input.mousePosition.x) * speedDrag * Time.deltaTime;
+
+            if (distancePosXMoved > Max_Speed) { 
+                distancePosXMoved = Max_Speed * distancePosXMoved/distancePosXMoved;
+            }
 
             float targetPositionX = transform.position.x + distancePosXMoved;
 
