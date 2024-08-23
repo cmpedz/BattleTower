@@ -19,6 +19,8 @@ public class CameraMovementController : MonoBehaviour
 
     [SerializeField] private Transform endPointBg;
 
+    [SerializeField] private Transform startPointBg;
+
     [SerializeField] private Transform endPointVirtualCamera;
 
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
@@ -30,12 +32,27 @@ public class CameraMovementController : MonoBehaviour
 
     void Start()
     {
+        transform.position = new Vector2(startPointBg.position.x, transform.position.y);
+
         limitationLeftPositionX = transform.position.x;
 
-        float virtualCameraHalfWidth = endPointVirtualCamera.position.x - transform.position.x;
+        float virtualCameraWidth = getHeightOfCamera();
 
-        limitationRightPositionX = endPointBg.position.x - virtualCameraHalfWidth;
+        limitationRightPositionX = endPointBg.position.x - virtualCameraWidth;
 
+        virtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset = new Vector2(virtualCameraWidth/2 , 0);  
+
+    }
+
+    private float getHeightOfCamera() {
+
+        Camera mainCamera = Camera.main;
+
+        float height = mainCamera.orthographicSize * 2;
+
+        float width = height * mainCamera.aspect;
+
+        return width;
     }
 
     // Update is called once per frame
