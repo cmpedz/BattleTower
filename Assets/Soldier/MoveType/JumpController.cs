@@ -28,6 +28,8 @@ public class JumpController : MonoBehaviour
 
     private Animator animator;
 
+
+
     void Start()
     {
         timeRun = Time.time;

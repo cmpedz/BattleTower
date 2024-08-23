@@ -7,11 +7,9 @@ public abstract class TowerController : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private float towerHealth;
 
-
     [SerializeField] private Transform startPointSummon;
 
     [SerializeField] private Transform endPointSummon;
-
 
     void Start()
     {
@@ -21,7 +19,11 @@ public abstract class TowerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (towerHealth <= 0) {
+
+            eventsWhenTowerIsDefeated();
+
+        }
     }
 
     public Vector3 getPositionSummon()
@@ -39,5 +41,6 @@ public abstract class TowerController : MonoBehaviour
         }
     }
 
-    public abstract void eventWhenTowerDefeated();
+    public abstract void eventsWhenTowerIsDefeated();
+
 }

@@ -79,7 +79,7 @@ public class SoldierAttackController : MonoBehaviour
             {
                 Debug.Log(enemy.ToString() + " getDamaged");
 
-                enemy.GetComponent<SoldierHurtController>().takeDam(GetComponent<SoldierAttributes>().getCurrentDam());
+                enemy.GetComponent<IObjectHurtController>().takeDam(GetComponent<SoldierAttributes>().getCurrentDam());
 
                 isAttacking = false;
 

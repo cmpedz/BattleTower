@@ -20,7 +20,7 @@ public class PlayerTowerController : TowerController
     [SerializeField] private TextMeshProUGUI coinDisplay;
 
 
-    public override void eventWhenTowerDefeated()
+    public override void eventsWhenTowerIsDefeated()
     {
         Debug.Log("player loses");
     }
