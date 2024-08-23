@@ -472,6 +472,7 @@ MonoBehaviour:
   startPointSummon: {fileID: 0}
   endPointSummon: {fileID: 0}
   healthBar: {fileID: 7608211306436446723}
+  gameEndMenu: {fileID: 9067488573655795902, guid: ec5891a64d4f0594997c128ceac5cca2, type: 3}
   towerData: {fileID: 0}
 --- !u!61 &2774332472320177913
 BoxCollider2D:

@@ -13,6 +13,8 @@ public abstract class TowerController : MonoBehaviour, IObjectHurtController
 
     [SerializeField] private Slider healthBar;
 
+    [SerializeField] private GameObject gameEndMenu;
+
 
     // Update is called once per frame
     protected void Update()
@@ -23,6 +25,13 @@ public abstract class TowerController : MonoBehaviour, IObjectHurtController
         if (healthBar.value <= healthBar.minValue) {
 
             eventsWhenTowerIsDefeated();
+
+            if(gameEndMenu != null)
+            {
+                gameEndMenu.SetActive(true);
+
+                Time.timeScale = 0;
+            }
 
             selfDestroy();
 
