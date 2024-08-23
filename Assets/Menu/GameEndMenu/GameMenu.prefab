@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 5928067297951474306}
   - component: {fileID: 2598538065606115648}
   m_Layer: 5
-  m_Name: GameEndMenu
+  m_Name: GameMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 8872736086117668000}
   - component: {fileID: 3334502911788268388}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -899,4 +899,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6720368784323161040}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 279754324535929277, guid: ce46e141a107d6a4d981b82444ae75bf, type: 3}
+        m_TargetAssemblyTypeName: ButtonEventsFactory, Assembly-CSharp
+        m_MethodName: changeScence
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
-public class ButtonEventsFactory: MonoBehaviour
+
+public class ButtonEventsFactory : MonoBehaviour
 {
     private static ButtonEventsFactory instance;
 
@@ -14,19 +15,22 @@ public class ButtonEventsFactory: MonoBehaviour
 
     private void Start()
     {
-        if(instance == null) {
+        if (instance == null) {
             instance = this;
-            DontDestroyOnLoad(instance.gameObject);
         }
         else
         {
-            if(instance != this) {
+            if (instance != this) {
                 Destroy(gameObject);
             }
         }
     }
-    public void pauseGame() { 
+    public void pauseGame() {
         Time.timeScale = 0;
+    }
+
+    public void playAgain(){
+        changeScence(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void resumeGame()
@@ -34,6 +38,15 @@ public class ButtonEventsFactory: MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void changeScence(int index)
+    {
+        SceneManager.LoadScene(index);
+        Time.timeScale = 1;
+    }
+
+    public void quitGameApp() { 
+        Application.Quit();
+    }
 
 
 }

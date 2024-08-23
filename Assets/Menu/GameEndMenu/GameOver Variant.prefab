@@ -96,6 +96,48 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3762745237426824901, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
+      propertyPath: m_Name
+      value: Play Again Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 4549956617560359067, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
+      propertyPath: m_text
+      value: 'Play Again
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005130887545545482, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005130887545545482, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005130887545545482, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 279754324535929277, guid: ce46e141a107d6a4d981b82444ae75bf, type: 3}
+    - target: {fileID: 9005130887545545482, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005130887545545482, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: playAgain
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005130887545545482, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ButtonEventsFactory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005130887545545482, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005130887545545482, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

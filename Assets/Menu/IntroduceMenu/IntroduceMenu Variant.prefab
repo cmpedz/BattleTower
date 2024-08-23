@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8716969341081677496
+--- !u!1001 &6347006721435902417
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,11 +10,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 373470833429849606, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
       propertyPath: m_Name
-      value: GameWin Variant
+      value: IntroduceMenu Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3334502911788268388, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3334502911788268388, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3334502911788268388, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
+      propertyPath: m_Color.r
+      value: 0.91805995
       objectReference: {fileID: 0}
     - target: {fileID: 3505600133732716969, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
       propertyPath: m_text
-      value: You Win
+      value: Battle Towner
       objectReference: {fileID: 0}
     - target: {fileID: 3657616510914270539, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
       propertyPath: m_Pivot.x
@@ -98,43 +110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3762745237426824901, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
       propertyPath: m_Name
-      value: Play Again Button
-      objectReference: {fileID: 0}
-    - target: {fileID: 4549956617560359067, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
-      propertyPath: m_text
-      value: Play Again
-      objectReference: {fileID: 0}
-    - target: {fileID: 9005130887545545482, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9005130887545545482, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9005130887545545482, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 279754324535929277, guid: ce46e141a107d6a4d981b82444ae75bf, type: 3}
-    - target: {fileID: 9005130887545545482, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9005130887545545482, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: playAgain
-      objectReference: {fileID: 0}
-    - target: {fileID: 9005130887545545482, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ButtonEventsFactory, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 9005130887545545482, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9005130887545545482, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: Play Button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
