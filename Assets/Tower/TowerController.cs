@@ -1,27 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public abstract class TowerController : MonoBehaviour
+public abstract class TowerController : MonoBehaviour, IObjectHurtController
 {
     // Start is called before the first frame update
-    [SerializeField] private float towerHealth;
 
     [SerializeField] private Transform startPointSummon;
 
     [SerializeField] private Transform endPointSummon;
 
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Slider healthBar;
+
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
-        if (towerHealth <= 0) {
+
+        Debug.Log(gameObject.ToString() + "current health value : " + healthBar.value + ", min health value : " + healthBar.minValue);
+
+        if (healthBar.value <= healthBar.minValue) {
 
             eventsWhenTowerIsDefeated();
+
+            selfDestroy();
 
         }
     }
@@ -32,15 +35,29 @@ public abstract class TowerController : MonoBehaviour
 
         return new Vector3(startPointSummon.position.x, posY, startPointSummon.position.z);
     }
+    public abstract void eventsWhenTowerIsDefeated();
 
-    public void towerGetDam(float dam)
+    public void defineHealthForHealthBar(float maxHealth) { 
+
+            healthBar.maxValue = maxHealth;
+
+            healthBar.minValue = 0;
+
+            healthBar.value = maxHealth;
+    }
+
+    public void takeDam(float dam)
     {
-        if (towerHealth > 0)
+        if (healthBar.value > 0)
         {
-            towerHealth -= dam;
+            healthBar.value -= dam;
         }
     }
 
-    public abstract void eventsWhenTowerIsDefeated();
+    public void selfDestroy() {
+
+        Destroy(gameObject);
+    }
+
 
 }

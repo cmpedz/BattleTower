@@ -5,6 +5,17 @@ using UnityEngine;
 
 public class EnemyTowerController : TowerController
 {
+    [SerializeField] private LevelScriptableObject towerData;
+    void Start()
+    {
+        defineHealthForHealthBar(towerData.healthTower);
+
+    }
+
+    void Update()
+    {
+        base.Update();
+    }
     public override void eventsWhenTowerIsDefeated()
     {
         Debug.Log("Winner");

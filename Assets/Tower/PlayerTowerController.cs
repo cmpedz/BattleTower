@@ -12,6 +12,8 @@ public class PlayerTowerController : TowerController
         set { currentCoin = value; }
     }
 
+    [SerializeField] private float towerHealth;
+
     [SerializeField] private float MaxCoin;
 
     [SerializeField] private float coinPerSecond;
@@ -34,12 +36,14 @@ public class PlayerTowerController : TowerController
 
         InvokeRepeating("expandFund",timeIncreaseFund, timeIncreaseFund);
 
+        defineHealthForHealthBar(towerHealth);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+       base.Update();
     }
 
 
