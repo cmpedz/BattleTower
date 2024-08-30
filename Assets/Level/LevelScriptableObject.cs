@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="ScriptableObject/levelData")]
 public class LevelScriptableObject : ScriptableObject
 {
+    public string levelName;
+
     public float healthTower;
 
     public float maxTimeSummonEnemy;

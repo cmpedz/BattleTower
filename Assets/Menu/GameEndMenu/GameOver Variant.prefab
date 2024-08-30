@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOver Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 894934975007791680, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3505600133732716969, guid: 4d08613a8116a15409e0a79681439be6, type: 3}
       propertyPath: m_text
       value: Lose

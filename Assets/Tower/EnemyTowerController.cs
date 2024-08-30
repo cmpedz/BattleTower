@@ -6,6 +6,12 @@ using UnityEngine;
 public class EnemyTowerController : TowerController
 {
     [SerializeField] private LevelScriptableObject towerData;
+
+    void Awake()
+    {
+        towerData = BattleDataStorage.Instance.CurrentLevelData;
+    }
+
     void Start()
     {
         defineHealthForHealthBar(towerData.healthTower);

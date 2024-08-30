@@ -21,6 +21,12 @@ public class EnemiesSummonController : MonoBehaviour
     private TowerController towerController;
 
 
+    void Awake()
+    {
+        towerData = BattleDataStorage.Instance.CurrentLevelData;
+    }
+
+
     void Start()
     {
 
