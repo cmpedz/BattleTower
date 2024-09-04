@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class LevelClickListener : MonoBehaviour, IPointerClickHandler
 {
@@ -12,6 +13,8 @@ public class LevelClickListener : MonoBehaviour, IPointerClickHandler
     [SerializeField] private GameObject levelInforsMenu;
 
     [SerializeField] private TextMeshProUGUI levelName;
+
+    [SerializeField] private GameObject reward;
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -24,7 +27,12 @@ public class LevelClickListener : MonoBehaviour, IPointerClickHandler
 
         levelInforsMenu.SetActive(true);
 
-        levelName.text = levelData.name;    
+        levelName.text = levelData.levelName;    
+
+        if(levelData.reward != null )
+        {
+            reward.GetComponent<Image>().sprite = levelData.reward.sprite;
+        }
     }
 
     private void setUpDataForLevel() { 

@@ -7,6 +7,8 @@ public class LevelScriptableObject : ScriptableObject
 {
     public string levelName;
 
+    public PlayerSoliderScriptableObject reward;
+
     public float healthTower;
 
     public float maxTimeSummonEnemy;

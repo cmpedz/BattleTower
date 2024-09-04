@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Leve3
   m_EditorClassIdentifier: 
   levelName: Level 3
-  healthTower: 100
-  maxTimeSummonEnemy: 20
-  minTimeSummonEnemy: 10
+  reward: {fileID: 11400000, guid: 65298757e93038d4ab550627d43d3ab3, type: 2}
+  healthTower: 300
+  maxTimeSummonEnemy: 30
+  minTimeSummonEnemy: 20
   timeWaitToDecreaseTimeSummonEnemy: 20
   timeSummonEnemyDecreaseAmount: 1
   enemiesType:

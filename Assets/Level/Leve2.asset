@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: Leve2
   m_EditorClassIdentifier: 
   levelName: Level 2
-  healthTower: 100
+  reward: {fileID: 11400000, guid: 28d4251262455f14abe5b1a1972dd3ac, type: 2}
+  healthTower: 200
   maxTimeSummonEnemy: 10
   minTimeSummonEnemy: 5
   timeWaitToDecreaseTimeSummonEnemy: 20
-  timeSummonEnemyDecreaseAmount: 2
+  timeSummonEnemyDecreaseAmount: 5
   enemiesType:
   - {fileID: 11400000, guid: 0387db069e931df4881513315b087b7c, type: 2}
   - {fileID: 11400000, guid: ff04de99e8336854880868758bd03f86, type: 2}
-  timeSummonNewType: 25
+  timeSummonNewType: 45
   levelBackground: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   enemyTowerSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}

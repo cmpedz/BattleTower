@@ -18,7 +18,7 @@ public class EnemyTowerController : TowerController
 
     }
 
-    void Update()
+    new void Update()
     {
         base.Update();
     }
