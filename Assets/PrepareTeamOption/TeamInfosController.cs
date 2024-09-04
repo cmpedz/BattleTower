@@ -18,6 +18,8 @@ public class TeamInfosController : MonoBehaviour
 
     private void putSolidersDataIntoTeamInfosDisplay() {
 
+       Debug.Log("put data into team infors");
+
        foreach(MoveToNewList soldier in solidersNotBrings) { 
 
             GameObject _solider = Instantiate(soldier.gameObject);
@@ -25,6 +27,8 @@ public class TeamInfosController : MonoBehaviour
             _solider.SetActive(true);
 
             solidersNotBringsContainer.addItem(_solider);
+
+            Debug.Log("adding solider data successfully");
 
             _solider.GetComponent<MoveToNewList>().NewContainer = solidersBringsContainer;
 
