@@ -39,6 +39,8 @@ public class ItemList : MonoBehaviour
 
     }
 
+    public List<GameObject> getItems() { return items;}
+
     public void removeItem(GameObject item) { 
 
         items.Remove(item);

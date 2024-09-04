@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,11 @@ public class MoveToNewList : MonoBehaviour, IPointerClickHandler
     [SerializeField] private ItemList currentContainer;
 
     [SerializeField] private ItemList newContainer;
+    public ItemList NewContainer
+    {
+        get { return newContainer; }
+        set { newContainer = value; }
+    }
     public void OnPointerClick(PointerEventData eventData)
     {
         moveToNewContainer();
@@ -16,6 +22,15 @@ public class MoveToNewList : MonoBehaviour, IPointerClickHandler
     // Start is called before the first frame update
     void Start()
     {
+        if(transform.parent != null)
+        {
+            bool isParentItemList = transform.parent.GetComponent<ItemList>() != null;
+
+            if(isParentItemList)
+            {
+                currentContainer = transform.parent.GetComponent<ItemList>();
+            }
+        }
         
     }
 
