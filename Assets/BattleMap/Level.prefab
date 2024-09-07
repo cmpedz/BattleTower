@@ -92,3 +92,5 @@ MonoBehaviour:
   levelInforsMenu: {fileID: 0}
   levelName: {fileID: 0}
   reward: {fileID: 0}
+  soldierPlayerBrings: {fileID: 0}
+  soldierHolderItemForm: {fileID: 5973540307150651677, guid: 3b233ccacd5bfd044823c9b121a9cbb3, type: 3}

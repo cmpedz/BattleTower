@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TeamInfosController : MonoBehaviour
 {
-    [SerializeField] private List<MoveToNewList> solidersNotBrings = new List<MoveToNewList>();
+    [SerializeField] private List<MoveToNewListEventListener> solidersNotBrings = new List<MoveToNewListEventListener>();
 
     [SerializeField] private ItemList solidersBringsContainer;
 
@@ -20,17 +20,15 @@ public class TeamInfosController : MonoBehaviour
 
        Debug.Log("put data into team infors");
 
-       foreach(MoveToNewList soldier in solidersNotBrings) { 
+       foreach(MoveToNewListEventListener soldier in solidersNotBrings) { 
 
             GameObject _solider = Instantiate(soldier.gameObject);
 
-            _solider.SetActive(true);
-
-            solidersNotBringsContainer.addItem(_solider);
+            solidersNotBringsContainer.addItem(_solider.GetComponent<Item>());
 
             Debug.Log("adding solider data successfully");
 
-            _solider.GetComponent<MoveToNewList>().NewContainer = solidersBringsContainer;
+            _solider.GetComponent<MoveToNewListEventListener>().NewContainer = solidersBringsContainer;
 
        }
 

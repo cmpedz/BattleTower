@@ -16,6 +16,10 @@ public class LevelClickListener : MonoBehaviour, IPointerClickHandler
 
     [SerializeField] private GameObject reward;
 
+    [SerializeField] private ItemList soldiersPlayerBrings;
+
+    [SerializeField] private SummonPlayerSoldierEvent boxHasSummonPLayerListener;
+
     public void OnPointerClick(PointerEventData eventData)
     {
         setUpCurrentLevelDisplay();
@@ -39,6 +43,25 @@ public class LevelClickListener : MonoBehaviour, IPointerClickHandler
 
         BattleDataStorage.Instance.CurrentLevelData = levelData;
 
+        setUpDataForPlayer();
+
+    }
+
+    private void setUpDataForPlayer() {
+
+        BattleDataStorage.Instance.SoldiersPlayerBrings.Clear();
+
+        foreach (Item soldier in soldiersPlayerBrings.getItems())
+        {
+
+            PlayerSoliderScriptableObject soldierData = (PlayerSoliderScriptableObject) soldier.ItemBrings;
+
+            if (soldierData != null)
+            {
+                BattleDataStorage.Instance.SoldiersPlayerBrings.Add(soldierData);
+            }
+
+        }
     }
 
     void Start()

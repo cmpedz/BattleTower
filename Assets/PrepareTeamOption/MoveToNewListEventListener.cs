@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MoveToNewList : MonoBehaviour, IPointerClickHandler
+public class MoveToNewListEventListener : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private ItemList currentContainer;
 
@@ -45,9 +45,9 @@ public class MoveToNewList : MonoBehaviour, IPointerClickHandler
         if (currentContainer == null || newContainer == null) return;
 
 
-        if (newContainer.addItem(gameObject))
+        if (newContainer.addItem(gameObject.GetComponent<Item>()))
         {
-            currentContainer.removeItem(gameObject);
+            currentContainer.removeItem(gameObject.GetComponent<Item>() );
 
             ItemList tmp = currentContainer;
 

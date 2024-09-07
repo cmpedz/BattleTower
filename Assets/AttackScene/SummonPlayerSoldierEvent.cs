@@ -4,20 +4,26 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SoliderHolderItem : MonoBehaviour, IPointerClickHandler
+public class SummonPlayerSoldierEvent : MonoBehaviour, IPointerClickHandler
 {
     // Start is called before the first frame update
     [SerializeField] private GameObject soldierForm;
 
+    [SerializeField] private PlayerTowerController playerTowerController;
+
+    private Item itemContained;
+
     [SerializeField] private PlayerSoliderScriptableObject soldierDataStored;
 
-    [SerializeField] private PlayerTowerController playerTowerController;
+    public PlayerTowerController PlayerTowerController
+    {
+        get { return playerTowerController; }
+        set { playerTowerController = value; }
+    }
 
     private bool isSummoned = false;
 
     [SerializeField] private GameObject wattingProcessBar;
-
-    [SerializeField] private Image soldierSpriteInTheBox;
 
     private Slider slider;
 
@@ -32,7 +38,10 @@ public class SoliderHolderItem : MonoBehaviour, IPointerClickHandler
     }
 
     void Awake() { 
-        soldierSpriteInTheBox.sprite = soldierDataStored.sprite;
+
+        itemContained = GetComponent<Item>();
+
+        soldierDataStored = (PlayerSoliderScriptableObject) itemContained.ItemBrings;
     }
 
     void Start()

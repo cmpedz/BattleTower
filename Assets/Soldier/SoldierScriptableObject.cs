@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "ScriptableObject/soldierData")]
-public class SoldierScriptableObject : ScriptableObject
+public class SoldierScriptableObject : ItemScriptableObject
 {
     public float soldierHealth;
 
@@ -13,8 +13,6 @@ public class SoldierScriptableObject : ScriptableObject
     public float dam;
 
     public float defence;
-
-    public Sprite sprite;
 
     public AnimatorOverrideController animatorController;
 

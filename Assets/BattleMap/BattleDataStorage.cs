@@ -22,6 +22,12 @@ public class BattleDataStorage : MonoBehaviour
         set { currentLevelData = value; }
     }
 
+
+    private List<PlayerSoliderScriptableObject> soldiersPlayerBrings = new List<PlayerSoliderScriptableObject>();
+    public List<PlayerSoliderScriptableObject> SoldiersPlayerBrings
+    {
+        get { return soldiersPlayerBrings;  }
+    }
     
 
     void Start()
