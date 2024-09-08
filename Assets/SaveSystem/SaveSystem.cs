@@ -9,7 +9,11 @@ public class SaveSystem
 
     private static readonly string SAVE_PATH = Application.dataPath + "/Saves";
 
-   
+    public static readonly string SOLDIER_PLAYER_BRINGS_FILE = "SoldierPlayerBringsData.txt";
+
+    public static readonly string SOLDIER_PLAYER_NOT_BRINGS_FILE = "SoldierPlayerNotBringsData.txt";
+
+    public static readonly string FILE_SAVE_GAME_STATUS = "GameStatus.txt";
 
     private SaveSystem() {
 
@@ -36,10 +40,14 @@ public class SaveSystem
 
     public string getDataFromSpecifedFile(string fileName) { 
 
-        if(File.Exists(SAVE_PATH + "/" + fileName)) { 
+        if(checkSpecifiedFileExsist(fileName)) { 
            return File.ReadAllText(SAVE_PATH + "/" + fileName);
         }
 
         return null;
+    }
+
+    public bool checkSpecifiedFileExsist(string fileName) {
+        return File.Exists(SAVE_PATH + "/" + fileName);
     }
 }

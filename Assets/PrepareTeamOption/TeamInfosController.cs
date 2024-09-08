@@ -12,10 +12,6 @@ public class TeamInfosController : MonoBehaviour
 
     [SerializeField] private Item itemForm;
 
-    private static readonly string Soldier_Player_Brings_File = "SoldierPlayerBringsData.txt";
-
-    private static readonly string Soldier_Player_Not_Brings_File = "SoldierPlayerNotBringsData.txt";
-
 
     // Start is called before the first frame update
     void Start()
@@ -27,9 +23,9 @@ public class TeamInfosController : MonoBehaviour
 
        Debug.Log("put data into team infors");
 
-        getDataFromItemListIntoSpecifiedFile(Soldier_Player_Not_Brings_File, solidersNotBringsContainer, solidersBringsContainer);
+        getDataFromItemListIntoSpecifiedFile(SaveSystem.SOLDIER_PLAYER_NOT_BRINGS_FILE, solidersNotBringsContainer, solidersBringsContainer);
 
-        getDataFromItemListIntoSpecifiedFile(Soldier_Player_Brings_File, solidersBringsContainer, solidersNotBringsContainer);
+        getDataFromItemListIntoSpecifiedFile(SaveSystem.SOLDIER_PLAYER_BRINGS_FILE, solidersBringsContainer, solidersNotBringsContainer);
 
     }
 
@@ -41,9 +37,9 @@ public class TeamInfosController : MonoBehaviour
 
     void OnDestroy()
     {
-        saveDataFromItemListIntoSpecifiedFile(Soldier_Player_Not_Brings_File, solidersNotBringsContainer);
+        saveDataFromItemListIntoSpecifiedFile(SaveSystem.SOLDIER_PLAYER_NOT_BRINGS_FILE, solidersNotBringsContainer);
 
-        saveDataFromItemListIntoSpecifiedFile(Soldier_Player_Brings_File, solidersBringsContainer);
+        saveDataFromItemListIntoSpecifiedFile(SaveSystem.SOLDIER_PLAYER_BRINGS_FILE, solidersBringsContainer);
     }
 
     private void getDataFromItemListIntoSpecifiedFile(string fileName, ItemList itemListContaining, ItemList itemListCanMoveTo)
@@ -83,7 +79,7 @@ public class TeamInfosController : MonoBehaviour
         
     }
 
-    private class ItemListData {
+    public class ItemListData {
 
         public List<ItemScriptableObject> itemBringsData;
 

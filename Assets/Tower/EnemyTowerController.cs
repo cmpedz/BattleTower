@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static TeamInfosController;
 
 public class EnemyTowerController : TowerController
 {
@@ -24,6 +25,13 @@ public class EnemyTowerController : TowerController
     }
     public override void eventsWhenTowerIsDefeated()
     {
-        Debug.Log("Winner");
+
+        if(towerData.reward != null)
+        {
+            GiftReceiveSystem.addNewSoldierToPlayerData(towerData.reward);
+        }
+       
     }
+
+
 }
