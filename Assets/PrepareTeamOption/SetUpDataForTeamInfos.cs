@@ -4,7 +4,7 @@ using UnityEngine;
 using System.IO;
 using TMPro;
 
-public class TeamInfosController : MonoBehaviour
+public class SetUpDataForTeamInfos : MonoBehaviour
 {
 
     [SerializeField] private ItemList solidersBringsContainer;
@@ -35,13 +35,6 @@ public class TeamInfosController : MonoBehaviour
         
     }
 
-    void OnDestroy()
-    {
-        saveDataFromItemListIntoSpecifiedFile(SaveSystem.SOLDIERS_PLAYER_BRINGS_FILE, solidersBringsContainer);
-
-        saveDataFromItemListIntoSpecifiedFile(SaveSystem.SOLDIERS_PLAYER_NOT_BRINGS_FILE, solidersNotBringsContainer);
-    }
-
     private void getDataFromSpecifiedFile(string fileName, ItemList itemListContaining, ItemList itemListCanMoveTo)
     {
         string dataTextForm = SaveSystem.getInstance().getDataFromSpecifedFile(fileName);
@@ -63,34 +56,5 @@ public class TeamInfosController : MonoBehaviour
         }
     }
 
-    private void saveDataFromItemListIntoSpecifiedFile(string fileName, ItemList itemList) { 
 
-            ItemListData itemListData = new ItemListData();
-
-            foreach (Item item in itemList.getItems()) {
-
-                ItemScriptableObject itemBrings = item.ItemBrings;
-                
-                if (item != null) {
-                    itemListData.itemsBringsName.Add(itemBrings.name);
-                }
-                  
-            }
-        
-            string dataSave = JsonUtility.ToJson(itemListData);
-
-            SaveSystem.getInstance().saveDataIntoSpecifiedFile(dataSave, fileName);
-        
-    }
-
-    public class ItemListData {
-
-        public List<string> itemsBringsName;
-
-        public ItemListData() {
-            itemsBringsName = new List<string>();
-        }
-
-
-    }
 }

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static TeamInfosController;
+using static SetUpDataForTeamInfos;
 
 public class InitialFileHandle : MonoBehaviour
 {
