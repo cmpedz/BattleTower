@@ -9,9 +9,9 @@ public class SaveSystem
 
     private static readonly string SAVE_PATH = Application.dataPath + "/Saves";
 
-    public static readonly string SOLDIER_PLAYER_BRINGS_FILE = "SoldierPlayerBringsData.txt";
+    public static readonly string SOLDIERS_PLAYER_BRINGS_FILE = "SoldierPlayerBringsData.txt";
 
-    public static readonly string SOLDIER_PLAYER_NOT_BRINGS_FILE = "SoldierPlayerNotBringsData.txt";
+    public static readonly string SOLDIERS_PLAYER_NOT_BRINGS_FILE = "SoldierPlayerNotBringsData.txt";
 
     public static readonly string FILE_SAVE_GAME_STATUS = "GameStatus.txt";
 

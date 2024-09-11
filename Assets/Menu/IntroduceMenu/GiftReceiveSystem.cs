@@ -13,24 +13,26 @@ public static class GiftReceiveSystem
     public static SaveSystem saveSystem = SaveSystem.getInstance();
     public static string addNewSoldierToPlayerData(PlayerSoliderScriptableObject newSoldierReceive) {
 
-        string dataFromSoldierNotBrings = SaveSystem.getInstance().getDataFromSpecifedFile(SaveSystem.SOLDIER_PLAYER_NOT_BRINGS_FILE);
+        string newSoldierName = newSoldierReceive.name;
 
-        string dataFromSoldierBrings = SaveSystem.getInstance().getDataFromSpecifedFile(SaveSystem.SOLDIER_PLAYER_BRINGS_FILE);
+        string dataFromSoldiersNotBrings = SaveSystem.getInstance().getDataFromSpecifedFile(SaveSystem.SOLDIERS_PLAYER_NOT_BRINGS_FILE);
 
-        ItemListData currentSoldiersNotBring = JsonUtility.FromJson<ItemListData>(dataFromSoldierNotBrings);
+        string dataFromSoldiersBrings = SaveSystem.getInstance().getDataFromSpecifedFile(SaveSystem.SOLDIERS_PLAYER_BRINGS_FILE);
 
-        ItemListData currentSoldiersBring = JsonUtility.FromJson<ItemListData>(dataFromSoldierBrings);
+        ItemListData currentSoldiersNotBring = JsonUtility.FromJson<ItemListData>(dataFromSoldiersNotBrings);
 
-        bool isPlayerHavingSoldierAsReward = currentSoldiersBring.itemBringsData.Contains(newSoldierReceive) || currentSoldiersNotBring.itemBringsData.Contains(newSoldierReceive);
+        ItemListData currentSoldiersBring = JsonUtility.FromJson<ItemListData>(dataFromSoldiersBrings);
+
+        bool isPlayerHavingSoldierAsReward = currentSoldiersBring.itemsBringsName.Contains(newSoldierName) || currentSoldiersNotBring.itemsBringsName.Contains(newSoldierName);
 
         if (!isPlayerHavingSoldierAsReward)
         {
 
-            currentSoldiersNotBring.itemBringsData.Add(newSoldierReceive);
+            currentSoldiersNotBring.itemsBringsName.Add(newSoldierName);
 
             string dataToJson = JsonUtility.ToJson(currentSoldiersNotBring);
 
-            saveSystem.saveDataIntoSpecifiedFile(dataToJson, SaveSystem.SOLDIER_PLAYER_NOT_BRINGS_FILE);
+            saveSystem.saveDataIntoSpecifiedFile(dataToJson, SaveSystem.SOLDIERS_PLAYER_NOT_BRINGS_FILE);
 
             return SUCCESS_TO_ADD_SOLDIER;
 

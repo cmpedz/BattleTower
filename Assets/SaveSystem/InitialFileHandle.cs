@@ -12,9 +12,9 @@ public class InitialFileHandle : MonoBehaviour
     {
         initGameStatus();
 
-        initFileToSaveSoldiersPlayerHas(SaveSystem.SOLDIER_PLAYER_BRINGS_FILE);
+        initFileToSaveSoldiersPlayerHas(SaveSystem.SOLDIERS_PLAYER_BRINGS_FILE);
 
-        initFileToSaveSoldiersPlayerHas(SaveSystem.SOLDIER_PLAYER_NOT_BRINGS_FILE);
+        initFileToSaveSoldiersPlayerHas(SaveSystem.SOLDIERS_PLAYER_NOT_BRINGS_FILE);
 
     }
 

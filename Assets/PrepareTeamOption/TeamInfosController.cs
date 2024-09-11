@@ -23,9 +23,9 @@ public class TeamInfosController : MonoBehaviour
 
        Debug.Log("put data into team infors");
 
-        getDataFromSpecifiedFile(SaveSystem.SOLDIER_PLAYER_NOT_BRINGS_FILE, solidersNotBringsContainer, solidersBringsContainer);
+        getDataFromSpecifiedFile(SaveSystem.SOLDIERS_PLAYER_NOT_BRINGS_FILE, solidersNotBringsContainer, solidersBringsContainer);
 
-        getDataFromSpecifiedFile(SaveSystem.SOLDIER_PLAYER_BRINGS_FILE, solidersBringsContainer, solidersNotBringsContainer);
+        getDataFromSpecifiedFile(SaveSystem.SOLDIERS_PLAYER_BRINGS_FILE, solidersBringsContainer, solidersNotBringsContainer);
 
     }
 
@@ -37,9 +37,9 @@ public class TeamInfosController : MonoBehaviour
 
     void OnDestroy()
     {
-        saveDataFromItemListIntoSpecifiedFile(SaveSystem.SOLDIER_PLAYER_BRINGS_FILE, solidersBringsContainer);
+        saveDataFromItemListIntoSpecifiedFile(SaveSystem.SOLDIERS_PLAYER_BRINGS_FILE, solidersBringsContainer);
 
-        saveDataFromItemListIntoSpecifiedFile(SaveSystem.SOLDIER_PLAYER_NOT_BRINGS_FILE, solidersNotBringsContainer);
+        saveDataFromItemListIntoSpecifiedFile(SaveSystem.SOLDIERS_PLAYER_NOT_BRINGS_FILE, solidersNotBringsContainer);
     }
 
     private void getDataFromSpecifiedFile(string fileName, ItemList itemListContaining, ItemList itemListCanMoveTo)
@@ -48,15 +48,13 @@ public class TeamInfosController : MonoBehaviour
 
         ItemListData itemListFromFile = JsonUtility.FromJson<ItemListData>(dataTextForm);
 
-        Debug.Log("check data received : " + itemListFromFile.itemBringsData);
-
         if (itemListFromFile == null || itemForm == null) return;
 
-        foreach( ItemScriptableObject itemBringsData in itemListFromFile.itemBringsData) { 
+        foreach( string aItemBringsName in itemListFromFile.itemsBringsName) { 
 
             GameObject _item = Instantiate(itemForm.gameObject);
 
-            _item.GetComponent<Item>().ItemBrings = itemBringsData;
+            _item.GetComponent<Item>().ItemBrings = ItemContainer.getItemThroughName(aItemBringsName);
 
             _item.GetComponent<MoveToNewListEventListener>().NewContainer = itemListCanMoveTo;
 
@@ -70,7 +68,13 @@ public class TeamInfosController : MonoBehaviour
             ItemListData itemListData = new ItemListData();
 
             foreach (Item item in itemList.getItems()) {
-                itemListData.itemBringsData.Add(item.ItemBrings);
+
+                ItemScriptableObject itemBrings = item.ItemBrings;
+                
+                if (item != null) {
+                    itemListData.itemsBringsName.Add(itemBrings.name);
+                }
+                  
             }
         
             string dataSave = JsonUtility.ToJson(itemListData);
@@ -81,11 +85,12 @@ public class TeamInfosController : MonoBehaviour
 
     public class ItemListData {
 
-        public List<ItemScriptableObject> itemBringsData;
+        public List<string> itemsBringsName;
 
         public ItemListData() {
-            itemBringsData = new List<ItemScriptableObject>();
+            itemsBringsName = new List<string>();
         }
+
 
     }
 }
