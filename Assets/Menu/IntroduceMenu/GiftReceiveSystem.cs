@@ -6,13 +6,12 @@ using static TeamInfosController;
 
 public static class GiftReceiveSystem
 {
+    public static readonly string SUCCESS_TO_ADD_SOLDIER = "adding soldier successfully";
+
+    public static readonly string FAILED_TO_ADD_SOLDIER = "failed when adding soldier";
 
     public static SaveSystem saveSystem = SaveSystem.getInstance();
-    public static void addNewSoldierToPlayerData(PlayerSoliderScriptableObject newSoldierReceive) {
-
-        initFileSavingSoldierDataIfNotExist(SaveSystem.SOLDIER_PLAYER_NOT_BRINGS_FILE);
-
-        initFileSavingSoldierDataIfNotExist(SaveSystem.SOLDIER_PLAYER_BRINGS_FILE);
+    public static string addNewSoldierToPlayerData(PlayerSoliderScriptableObject newSoldierReceive) {
 
         string dataFromSoldierNotBrings = SaveSystem.getInstance().getDataFromSpecifedFile(SaveSystem.SOLDIER_PLAYER_NOT_BRINGS_FILE);
 
@@ -33,21 +32,12 @@ public static class GiftReceiveSystem
 
             saveSystem.saveDataIntoSpecifiedFile(dataToJson, SaveSystem.SOLDIER_PLAYER_NOT_BRINGS_FILE);
 
+            return SUCCESS_TO_ADD_SOLDIER;
+
         }
 
-
+        return FAILED_TO_ADD_SOLDIER;
 
     }
 
-    private static void initFileSavingSoldierDataIfNotExist(string fileName) {
-
-        if (saveSystem.checkSpecifiedFileExsist(fileName)) { 
-
-            ItemListData itemListData = new ItemListData();
-
-            string itemListToJson = JsonUtility.ToJson(itemListData);
-
-            saveSystem.saveDataIntoSpecifiedFile(itemListToJson, fileName);
-        }
-    }
 }

@@ -1,69 +1,55 @@
+
 using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class GameStartClickListener : MonoBehaviour, IPointerClickHandler
+
+public class GameStartClickListener : MonoBehaviour
 {
-    [SerializeField] private ButtonEventsFactory buttonEventsFactory;
-
-    [SerializeField] private int indexNextScene;
-
-    [SerializeField] private PlayerSoliderScriptableObject freeSoldierForNewbie;
-
-    private SaveSystem saveSystem = SaveSystem.getInstance();
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        isPLayerCapableToReceiveNewbieGift();
-
-        buttonEventsFactory.changeScence(indexNextScene);
-    }
-
-    private void isPLayerCapableToReceiveNewbieGift()
-    {
-        string gameStatusFromFile = saveSystem.getDataFromSpecifedFile(SaveSystem.FILE_SAVE_GAME_STATUS);
-
-        GameStatus gameStatus = JsonUtility.FromJson<GameStatus>(gameStatusFromFile);
-
-        if (freeSoldierForNewbie != null && gameStatus.isNewbie)
-        {
-            GiftReceiveSystem.addNewSoldierToPlayerData(freeSoldierForNewbie);
-
-            gameStatus.isNewbie = false;
-
-            string gameStatusToJson = JsonUtility.ToJson(gameStatus);
-
-            saveSystem.saveDataIntoSpecifiedFile(gameStatusToJson, SaveSystem.FILE_SAVE_GAME_STATUS);
-        }
-
-        
-
-
-    }
-
-
-
     // Start is called before the first frame update
+    [SerializeField] private GameObject loadingScene;
+
+    [SerializeField] private Slider progressBar;
+
+    [SerializeField] private TextMeshProUGUI percentage;
+
     void Start()
     {
-        string fileSaveGameStatusPath = SaveSystem.FILE_SAVE_GAME_STATUS;
-
-        if (!saveSystem.checkSpecifiedFileExsist(fileSaveGameStatusPath)) { 
-            
-            GameStatus gameStatus = new GameStatus();
-
-            gameStatus.isNewbie = true;
-
-            string gameStatusToJson = JsonUtility.ToJson(gameStatus);
-
-            saveSystem.saveDataIntoSpecifiedFile(gameStatusToJson, fileSaveGameStatusPath);
-
-        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void moveToNextScene(int index) {
+
+        loadingScene.SetActive(true);
+
+        StartCoroutine(handleLoadingBar(index));
+    }
+
+    private IEnumerator handleLoadingBar(int indexNextScene) {
+
+        AsyncOperation nextSceneStatus =  SceneManager.LoadSceneAsync(indexNextScene);
+
+        while (!nextSceneStatus.isDone)
+        {
+            const float MAX_PROGRESS_VALUE = 0.9f;
+
+            float displayProgress = Mathf.Clamp01(nextSceneStatus.progress / MAX_PROGRESS_VALUE);
+
+            progressBar.value = displayProgress;
+
+            percentage.text = displayProgress * 100 + "%";  
+
+            Debug.Log(displayProgress);
+
+            yield return null;
+        }
     }
 }

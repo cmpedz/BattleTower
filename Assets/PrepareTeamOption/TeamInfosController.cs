@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using TMPro;
 
 public class TeamInfosController : MonoBehaviour
 {
@@ -11,7 +12,6 @@ public class TeamInfosController : MonoBehaviour
     [SerializeField] private ItemList solidersNotBringsContainer;
 
     [SerializeField] private Item itemForm;
-
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +23,9 @@ public class TeamInfosController : MonoBehaviour
 
        Debug.Log("put data into team infors");
 
-        getDataFromItemListIntoSpecifiedFile(SaveSystem.SOLDIER_PLAYER_NOT_BRINGS_FILE, solidersNotBringsContainer, solidersBringsContainer);
+        getDataFromSpecifiedFile(SaveSystem.SOLDIER_PLAYER_NOT_BRINGS_FILE, solidersNotBringsContainer, solidersBringsContainer);
 
-        getDataFromItemListIntoSpecifiedFile(SaveSystem.SOLDIER_PLAYER_BRINGS_FILE, solidersBringsContainer, solidersNotBringsContainer);
+        getDataFromSpecifiedFile(SaveSystem.SOLDIER_PLAYER_BRINGS_FILE, solidersBringsContainer, solidersNotBringsContainer);
 
     }
 
@@ -37,12 +37,12 @@ public class TeamInfosController : MonoBehaviour
 
     void OnDestroy()
     {
-        saveDataFromItemListIntoSpecifiedFile(SaveSystem.SOLDIER_PLAYER_NOT_BRINGS_FILE, solidersNotBringsContainer);
-
         saveDataFromItemListIntoSpecifiedFile(SaveSystem.SOLDIER_PLAYER_BRINGS_FILE, solidersBringsContainer);
+
+        saveDataFromItemListIntoSpecifiedFile(SaveSystem.SOLDIER_PLAYER_NOT_BRINGS_FILE, solidersNotBringsContainer);
     }
 
-    private void getDataFromItemListIntoSpecifiedFile(string fileName, ItemList itemListContaining, ItemList itemListCanMoveTo)
+    private void getDataFromSpecifiedFile(string fileName, ItemList itemListContaining, ItemList itemListCanMoveTo)
     {
         string dataTextForm = SaveSystem.getInstance().getDataFromSpecifedFile(fileName);
 
