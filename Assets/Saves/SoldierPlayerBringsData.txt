@@ -1,1 +1,1 @@
-{"itemsBringsName":[]}
+{"itemsBringsName":["Player Sceptile 1"]}

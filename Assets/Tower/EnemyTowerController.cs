@@ -28,7 +28,7 @@ public class EnemyTowerController : TowerController
 
         if(towerData.reward != null)
         {
-            GiftReceiveSystem.addNewSoldierToPlayerData(towerData.reward);
+            
         }
        
     }

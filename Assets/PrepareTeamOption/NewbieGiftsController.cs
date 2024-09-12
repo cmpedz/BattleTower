@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class NewbieGiftsController : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    [SerializeField] private PlayerSoliderScriptableObject freeSoldierForNewbie;
+    [SerializeField] private Item freeSoldierForNewbie;
 
-    [SerializeField] private TextMeshProUGUI textTest;
+    [SerializeField] private ItemList soldiersPlayerNotBrings;
 
     private SaveSystem saveSystem = SaveSystem.getInstance();
 
@@ -30,12 +31,11 @@ public class NewbieGiftsController : MonoBehaviour
 
         GameStatus gameStatus = JsonUtility.FromJson<GameStatus>(gameStatusFromFile);
 
-        textTest.text = " , check condition is newbie : " + gameStatus.isNewbie +  " check gift receive :" + freeSoldierForNewbie ;
 
         if (freeSoldierForNewbie != null && gameStatus.isNewbie)
         {
 
-            textTest.text = GiftReceiveSystem.addNewSoldierToPlayerData(freeSoldierForNewbie);
+            soldiersPlayerNotBrings.addItem(freeSoldierForNewbie);
 
             gameStatus.isNewbie = false;
 
