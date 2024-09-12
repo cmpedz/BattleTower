@@ -28,7 +28,7 @@ public class EnemyTowerController : TowerController
 
         if(towerData.reward != null)
         {
-            
+            ItemCollectController.saveItemDataIntoSpecifiedFile(SaveSystem.SOLDIERS_PLAYER_NOT_BRINGS_FILE, towerData.reward.name, false);
         }
        
     }

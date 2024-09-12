@@ -4,17 +4,17 @@ using UnityEngine;
 
 public static class ItemCollectController
 {
-    public static void saveItemDataIntoSpecifiedFile(string fileName, Item item, bool duplicationPermission) { 
+    public static void saveItemDataIntoSpecifiedFile(string fileName, string itemName, bool duplicationPermission) { 
 
             string itemsPlayerHas = SaveSystem.getInstance().getDataFromSpecifedFile(fileName);
 
             ItemListData currentItemsPlayerHas = JsonUtility.FromJson<ItemListData>(itemsPlayerHas);
 
-            bool isItemDuplicated = currentItemsPlayerHas.itemsBringsName.Contains(item.name);
+            bool isItemDuplicated = currentItemsPlayerHas.itemsBringsName.Contains(itemName);
 
             if ( !duplicationPermission && isItemDuplicated) return;
 
-            currentItemsPlayerHas.itemsBringsName.Add(item.name);
+            currentItemsPlayerHas.itemsBringsName.Add(itemName);
 
             string itemsPlayerHasToJson = JsonUtility.ToJson(currentItemsPlayerHas);
 
